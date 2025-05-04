@@ -6,6 +6,29 @@ const httpRequest = axios.create({
         Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
 })
+// access token
+httpRequest.interceptors.request.use(
+    function (config) {
+        const token = localStorage.getItem("token")
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`
+        }
+        return config
+    },
+    function (error) {
+        return Promise.reject(error)
+    }
+)
+
+httpRequest.interceptors.response.use(
+    function (response) {
+        return response
+    },
+    function (error) {
+        return Promise.reject(error)
+    }
+)
+
 const request = async (method, url, data, config) => {
     try {
         const res = await httpRequest.request({ method, url, data, ...config })

@@ -4,7 +4,7 @@ import { Children, cloneElement } from "react"
 
 import TextInput from "../TextInput"
 
-function Form({ schema, defaultValues = {}, formProps, onSubmit, children }) {
+function Form({ schema = {}, defaultValues = {}, formProps, onSubmit, children }) {
     const config = {
         resolver: yupResolver(schema),
         defaultValues,
@@ -25,7 +25,6 @@ function Form({ schema, defaultValues = {}, formProps, onSubmit, children }) {
             message: errors[child.props.name]?.message,
         })
     })
-
     return <form onSubmit={handleSubmit(onSubmit)}>{inputs}</form>
 }
 
