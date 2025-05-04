@@ -26,7 +26,6 @@ function Login() {
             console.log(res)
             localStorage.setItem("token", res.data.access_token)
             localStorage.setItem("refresh_token", res.data.refresh_token)
-            // httpRequest.setToken(res.data.access_token)
             dispatch(getCurrentUser())
             // navigate(params.get("continue") || config.routes.home)
         } catch (error) {
