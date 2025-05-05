@@ -5,24 +5,49 @@ $headerMenu: $header-height - $headerTopBar-height;
 header {
     width: 100%;
     height: $header-height;
+    .headerTopBar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: $headerTopBar-height;
+        background-color: var(--primary-color);
+        color: white;
+        font-size: 16rem;
+        padding: 5px 0;
+    }
+    .headerMenu {
+        height: $headerMenu;
+        box-shadow: 0 4px 4px 0 rgba(199, 194, 194, 0.25);
+        .mainLogo {
+            height: $headerMenu - 2;
+            width: $headerMenu - 2;
+        }
+        .menuContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    section {
+        margin-left: 20px;
+        svg {
+            margin-right: 5px;
+        }
+    }
+    nav {
+        ul {
+            display: flex;
+        }
+    }
 }
 
-section {
-    margin-left: 20px;
+.calendarIcon {
+    font-size: 16rem;
+    font-weight: 400;
+    height: 20px;
+    margin-right: 8px;
 }
-
-.headerTopBar {
-    width: 100%;
-    height: $headerTopBar-height;
-    background-color: var(--primary-color);
-}
-
-.headerMenu {
-    height: $headerMenu;
-    box-shadow: 0 4px 4px 0 rgba(199, 194, 194, 0.25);
-}
-
-.mainLogo {
-    height: $headerMenu - 2;
-    width: $headerMenu - 2;
+.countDownWrapper {
+    margin-left: 60px;
 }

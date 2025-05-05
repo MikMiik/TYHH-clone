@@ -76,7 +76,10 @@ httpRequest.interceptors.response.use(
 
 const request = async (method, url, data, config) => {
     try {
-        const res = await httpRequest.request({ method, url, data, ...config })
+        const isPutOrPatch = ["put", "patch"].includes(method.toLowerCase())
+        const effecctiveMethod = isPutOrPatch ? "post" : method
+        const effecctivePath = isPutOrPatch ? `${url}${url.includes("?") ? "&" : "?"}_method=${method}` : url
+        const res = await httpRequest.request({ method: effecctiveMethod, url: effecctivePath, data, ...config })
         return res.data
     } catch (error) {
         console.error(error)

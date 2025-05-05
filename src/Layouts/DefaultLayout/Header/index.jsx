@@ -1,51 +1,52 @@
-import clsx from "clsx"
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faKey } from "@fortawesome/free-solid-svg-icons"
-import { faUserPlus } from "@fortawesome/free-solid-svg-icons"
-import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons"
+import { faKey, faArrowRightToBracket, faUserPlus, faCalendarDays } from "@fortawesome/free-solid-svg-icons"
 
 import styles from "./Header.module.scss"
 import mainlogo from "@/assets/images/mainlogo.png"
-import Item from "@/components/HeaderNavItem"
+import { CountDown, HeaderNavItem, HeaderNavButton } from "./components"
 import config from "@/config"
-import HeaderButton from "@/components/HeaderNavButton"
 
 function Header() {
     return (
         <header>
-            <div className={clsx(styles.headerTopBar)}></div>
-            <div className={clsx(styles.headerMenu)}>
-                <div className={clsx(styles.menuContainer, "d-flex", "align-items-center", "justify-content-centre")}>
+            <div className={styles.headerTopBar}>
+                <FontAwesomeIcon className={styles.calendarIcon} icon={faCalendarDays} />
+                Đếm ngược ngày thi tốt nghiệp THPT 2025
+                <CountDown />
+            </div>
 
+            <div className={styles.headerMenu}>
+                <div className={styles.menuContainer}>
                     <Link to={"/"}>
                         <img className={styles.mainLogo} src={mainlogo} alt="Tyhh.net" />
                     </Link>
 
                     <nav>
-                        <ul className="d-flex">
-                            <Item goto={config.routes.home}>Trang chủ</Item>
-                            <Item goto={config.routes.onlineLearning}>Học Online</Item>
-                            <Item goto={config.routes.vipDocuments}>Tài liệu Vip</Item>
-                            <Item goto={config.routes.documents}>Tài liệu</Item>
-                            <Item goto={config.routes.liveSchedule}>Lịch Live</Item>
-                            <Item>Thanh toán</Item>
+                        <ul>
+                            <HeaderNavItem>Danh mục</HeaderNavItem>
+                            <HeaderNavItem goto={config.routes.home}>Trang chủ</HeaderNavItem>
+                            <HeaderNavItem goto={config.routes.onlineLearning}>Học Online</HeaderNavItem>
+                            <HeaderNavItem goto={config.routes.vipDocuments}>Tài liệu Vip</HeaderNavItem>
+                            <HeaderNavItem goto={config.routes.documents}>Tài liệu</HeaderNavItem>
+                            <HeaderNavItem goto={config.routes.liveSchedule}>Lịch Live</HeaderNavItem>
+                            <HeaderNavItem>Thanh toán</HeaderNavItem>
                         </ul>
                     </nav>
-                    
+
                     <section>
-                        <HeaderButton>
+                        <HeaderNavButton type="activateCard">
                             <FontAwesomeIcon icon={faKey} />
                             Kích hoạt thẻ
-                        </HeaderButton>
-                        <HeaderButton>
+                        </HeaderNavButton>
+                        <HeaderNavButton type="register">
                             <FontAwesomeIcon icon={faUserPlus} />
                             Đăng kí
-                        </HeaderButton>
-                        <HeaderButton>
+                        </HeaderNavButton>
+                        <HeaderNavButton type="login">
                             <FontAwesomeIcon icon={faArrowRightToBracket} />
                             Đăng nhập
-                        </HeaderButton>
+                        </HeaderNavButton>
                     </section>
                 </div>
             </div>
