@@ -7,6 +7,7 @@ const config = {
         liveSchedule: "/liveschedule",
         login: "/login",
         register: "/register",
+        posts: "/posts",
         notFound: "*",
     },
 }

@@ -1,6 +1,7 @@
 import config from "@/config"
 import { Home, OnlineLearning, VipDocuments, Documents, LiveSchedule, Login, Register } from "@/pages"
 import DefaultLayout from "@/Layouts/DefaultLayout"
+import Posts from "@/pages/Posts"
 
 const routes = [
     {
@@ -34,8 +35,8 @@ const routes = [
         layout: DefaultLayout,
     },
     {
-        path: config.routes.liveSchedule,
-        component: Register,
+        path: config.routes.posts,
+        component: Posts,
         layout: DefaultLayout,
     },
     {
