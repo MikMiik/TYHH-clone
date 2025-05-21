@@ -1,7 +1,6 @@
 import config from '@/config'
 import { Home, OnlineLearning, VipDocuments, Documents, LiveSchedule, Login, Register } from '@/pages'
 import DefaultLayout from '@/Layouts/DefaultLayout'
-import Test from '@/pages/test'
 
 const routes = [
   {
@@ -41,11 +40,6 @@ const routes = [
   },
   {
     path: config.routes.notFound,
-  },
-  {
-    path: config.routes.test,
-    component: Test,
-    layout: DefaultLayout,
   },
 ]
 

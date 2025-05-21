@@ -8,7 +8,6 @@ const config = {
     login: '/login',
     register: '/register',
     notFound: '*',
-    test: '/test',
   },
 }
 
