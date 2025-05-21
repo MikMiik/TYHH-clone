@@ -13,27 +13,7 @@ const theme = extendTheme({
         },
       },
     },
-    // dark: {
-    //   palette: {
-    //     primary: {
-    //       main: '#90caf9',
-    //     },
-    //     background: {
-    //       default: '#121212',
-    //       paper: '#1e1e1e',
-    //     },
-    //   },
-    // },
   },
-  // components: {
-  //   MuiButton: {
-  //     styleOverrides: {
-  //       root: {
-  //         borderRadius: 8,
-  //       },
-  //     },
-  //   },
-  // },
 })
 
 export default theme
